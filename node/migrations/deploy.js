@@ -1,6 +1,6 @@
 const Provider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
-const { interface, bytecode } = require("./compile");
+const { interface, bytecode } = require("../build/Token");
 
 const provider = new Provider(
   "pepper stable ripple enrich provide business ankle tank net lumber acquire earn",
