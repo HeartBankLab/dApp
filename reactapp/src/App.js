@@ -21,11 +21,14 @@ class App extends Component {
 
     try {
       const accounts = await web3.eth.getAccounts();
-      await token.methods
+      const tx = await token.methods
         .transfer(this.state.address, this.state.amount)
         .send({ from: accounts[0] });
       const balance = await token.methods.balanceOf(accounts[0]).call();
-      this.setState({ status: "Transfer success!", balance });
+      this.setState({
+        status: "TxHash: " + tx.transactionHash,
+        balance
+      });
     } catch (error) {
       this.setState({ status: error.message });
     }
